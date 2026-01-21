@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ploceus | Amigurumis, Patrones y Talleres de Tejido en Colombia</title>
+    <meta name="description" content="Ploceus: Venta de amigurumis personalizados, patrones PDF originales y talleres de tejido. ¡Cursos y envíos a toda Colombia!">
+    <meta name="keywords" content="amigurumis colombia, patrones de crochet pdf, talleres de tejido bogota, cursos de crochet online, peluches tejidos mano">
+    <meta name="author" content="Ploceus">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Sofia&display=swap" rel="stylesheet">
+  
+  <style>
+
+    :root {
+        --color-primario: #d4a373;
+        --color-texto: #333;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        overflow-x: hidden;
+    }
+
+    /* --- UTILIDADES --- */
+    .bg-crema { background-color: #fdfaf7; }
+    .bg-blanco { background-color: #ffffff; }
+    .bg-gris-claro { background-color: #fafafa; }
+    .bg-arena { background-color: #fcebd7; }
+
+    h1, h2, .fuente-especial {
+        font-family: 'Sofia', cursive !important;
+    }
+
+    /* --- SECCIONES GENERALES --- */
+    section, .seccion-bloque {
+        padding: 60px 5%; /* Reducido para que no se vea tan apretado */
+        margin: 0 !important;
+    }
+
+    /* --- NAVEGACIÓN --- */
+    nav {
+        display: flex;
+        flex-wrap: wrap; /* Para que los links bajen si no caben */
+        justify-content: center;
+        gap: 15px;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: var(--color-texto);
+        font-size: 0.9rem;
+    }
+
+    /* --- RESPONSIVIDAD (Ajustes para Celular) --- */
+    @media (max-width: 768px) {
+        /* El header se pone en columna */
+        header {
+            flex-direction: column;
+            text-align: center;
+            gap: 10px;
+        }
+
+        /* El Banner/Hero: En vez de 3 columnas, mostramos 1 principal */
+        #hero-slider > div {
+            flex-direction: column !important;
+        }
+        
+        #hero-slider img {
+            height: 250px !important; /* Altura fija para que no sea infinito */
+        }
+
+        #hero-container {
+            height: auto !important;
+        }
+
+        /* Sección Sobre Mí: Foto arriba, texto abajo */
+        #about {
+            flex-direction: column !important;
+            padding: 40px 5% !important;
+            gap: 30px !important;
+            text-align: center !important;
+        }
+
+        #about div {
+            width: 100% !important;
+            max-width: 280px !important; /* Foto más pequeña en celu */
+            height: auto !important;
+        }
+
+        #about img {
+            width: 100% !important;
+            height: 280px !important;
+        }
+
+        /* Ajuste de títulos */
+        h2 {
+            font-size: 2.2rem !important;
+        }
+    }
+/* --- SOLO PARA CELULARES --- */
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden; /* Elimina el espacio blanco lateral */
+        width: 100%;
+    }
+
+    /* Hace que el contenedor del banner ocupe todo el ancho */
+    #hero-container {
+        height: auto !important; /* Deja que crezca según el contenido */
+    }
+
+    /* Ajusta cada banner para que se vea bien en vertical */
+    #hero-slider > div {
+        flex-direction: column !important; /* Apila las fotos y el texto */
+    }
+
+    /* Ajusta las imágenes del banner para que no se vean cortadas */
+    #hero-slider img {
+        height: 200px !important; 
+        width: 100% !important;
+        object-fit: cover;
+    }
+
+    /* Ajusta el bloque de texto del banner */
+    #hero-slider div[style*="background-color"] {
+        padding: 40px 20px !important;
+    }
+}
+  
+
+    @media (max-width: 768px) {
+    /* ... tus otras reglas se mantienen igual ... */
+
+    .logo-banner {
+        width: 150px !important;      /* Un tamaño fijo pequeño para que no se pierda */
+        max-width: 90% !important;    /* Si el celular es mini, que no pase del 90% del ancho */
+        height: auto !important;
+        object-fit: contain !important; /* ¡ESTO evita que se corte! */
+        margin: 0 auto 15px auto !important;
+        display: block !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* ... mantén todo lo que ya pusimos antes ... */
+
+    /* Esto elimina el espacio fantasma debajo de las fotos del banner */
+    #hero-slider img {
+        display: block !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* Esto asegura que el contenedor del logo no tenga márgenes internos extra arriba */
+    #hero-slider div[style*="background-color"] {
+        padding-top: 30px !important; /* Ajusta este número si quieres más o menos espacio */
+    }
+}
+
+@media (max-width: 768px) {
+    /* ... mantén lo anterior ... */
+
+    /* Arreglo para las tarjetas de talleres */
+    #talleres div[style*="display: flex"] {
+        gap: 20px !important;
+        padding: 0 10px !important;
+    }
+
+    #talleres div[style*="min-width: 300px"] {
+        min-width: 100% !important; /* Que ocupen todo el ancho en el celu */
+        max-width: 100% !important;
+        padding: 30px 20px !important; /* Espacio interno para que el texto respire */
+        box-sizing: border-box; /* Asegura que el padding no ensanche la tarjeta */
+    }
+
+    /* Ajuste para los títulos de talleres */
+    #talleres h3 {
+        font-size: 1.8rem !important;
+        margin-bottom: 15px !important;
+    }
+
+    /* Ajuste para los botones de talleres */
+    #talleres a {
+        width: 100% !important; /* Botones a todo el ancho para que sea fácil tocar con el dedo */
+        display: block !important;
+        padding: 12px 10px !important;
+        font-size: 0.9rem !important;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 768px) {
+    /* ... mantén lo que ya tienes de logo y talleres ... */
+
+    /* Forzamos a que el contenedor de Betty sea un flex para organizar los elementos */
+    #hero-slider > div:nth-child(2) div[style*="background-color"] {
+        display: flex !important;
+        flex-direction: column !important;
+        padding-bottom: 20px !important;
+    }
+
+    /* Usamos el ::after con medidas muy claras para que la imagen aparezca sí o sí */
+    #hero-slider > div:nth-child(2) div[style*="background-color"]::after {
+        content: "";
+        display: block !important;
+        width: 100% !important;
+        height: px !important; /* Altura fija para que no sea 0 */
+        margin-top: 20px !important;
+        background-image: url('PATRONGIRASOL.png') !important;
+        background-size: contain !important; /* Cambiamos a 'contain' para que no se corte nada */
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+    }
+} 
+
+@media (max-width: 768px) {
+    /* Estilizamos el contenedor del menú */
+    header nav {
+        background-color: #ffffff !important; /* Fondo blanco limpio */
+        padding: 15px 5px !important;
+        border-bottom: 1px solid #eee;
+        display: flex !important;
+        flex-wrap: wrap !important; /* Permite que se acomoden en dos filas si es necesario */
+        justify-content: center !important;
+        gap: 12px !important; /* Espacio real entre botones */
+    }
+
+    
+
+    /* Convertimos los enlaces en "botones" táctiles */
+    header nav a {
+        font-size: 0.85rem !important;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600 !important;
+        color: #555 !important;
+        padding: 8px 12px !important;
+        background: #f9f9f9; /* Un gris muy suave para que parezcan botones */
+        border-radius: 20px;
+        text-decoration: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Mantén tus otros códigos de logo, menú y talleres intactos */
+
+    /* SEGUNDO BANNER (Betty): Configuración del contenedor */
+    #hero-slider > div:nth-child(2) div[style*="background-color"] {
+        display: flex !important;
+        flex-direction: column !important;
+        padding-bottom: 0 !important;
+    }
+
+    /* SEGUNDO BANNER: Ponemos PATRONGIRASOL.png con tus medidas */
+    #hero-slider > div:nth-child(2) div[style*="background-color"]::after {
+        content: "";
+        display: block !important;
+        width: 100% !important;
+        height: 200px !important; /* Tu medida que estaba bien */
+        margin-top: 20px !important;
+        background-image: url('PATRONGIRASOL.png') !important; 
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Seleccionamos el contenedor que envuelve los enlaces de redes */
+    /* El selector :has asegura que pesquemos el div correcto donde están los links */
+    div:has(> a[href*="instagram"]), 
+    footer {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important; /* Crea dos columnas exactamente iguales */
+        gap: 10px !important; /* Espacio uniforme entre los botones */
+        justify-items: center !important; /* Centra los botones dentro de sus columnas */
+        align-items: center !important;
+        width: 90% !important; /* Deja un pequeño margen a los lados */
+        max-width: 340px !important; /* Ancho ideal para que queden en parejas */
+        margin: 20px auto !important; /* Centra todo el bloque en la pantalla del celular */
+    }
+
+    /* Estilizamos todos los botones para que tengan el mismo tamaño */
+    a[href*="instagram"], 
+    a[href*="tiktok"], 
+    a[href*="facebook"], 
+    a[href*="whatsapp"] {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important; /* Ocupan todo el ancho de su columna de la rejilla */
+        max-width: 140px !important; 
+        height: 45px !important;
+        background-color: #fdf7f2 !important;
+        color: #8b5e3c !important;
+        border-radius: 25px !important;
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        text-decoration: none !important;
+        border: 1px solid #eaddcf !important;
+        margin: 0 !important; /* Quitamos márgenes manuales que causan desorden */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Forzamos el diseño de botón específicamente para WhatsApp */
+    a[href*="whatsapp"], 
+    a[href*="wa.me"], 
+    footer a:last-child {
+        display: inline-flex !important;
+        background-color: #fdf7f2 !important; /* El color crema que usas */
+        color: #8b5e3c !important; /* El café de tu marca */
+        padding: 10px 15px !important;
+        border-radius: 25px !important;
+        text-decoration: none !important;
+        font-weight: 600 !important;
+        font-size: 13px !important;
+        border: 1px solid #eaddcf !important; /* El borde que tienen los otros */
+        width: 140px !important;
+        height: 45px !important;
+        justify-content: center !important;
+        align-items: center !important;
+        box-sizing: border-box !important;
+    }
+}
+</style>
+    
+    </style>
+    
+</head>
+<body>
+
+  <header>
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px 5%;">
+    <h1 style="margin: 0; font-family: 'Sofia', cursive;">Ploceus</h1>
+    <nav style="display: flex; gap: 20px;">
+        <a href="#about">Sobre mí</a>
+        <a href="#tienda">Tienda</a>
+        <a href="#cursos">Cursos</a>
+        <a href="#talleres">Talleres</a>
+        <a href="#patrones">PatronesFree</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+</header>
+<div id="hero-container" style="width: 100%; overflow: hidden; position: relative;">
+    <div id="hero-slider" style="display: flex; width: 200%; height: 100%; transition: transform 0.8s ease-in-out;">
+        
+        <div style="width: 50%; display: flex; align-items: stretch; height: 100%;">
+            <div style="flex: 1.2;"><img src="banner-coco.jpg" style="width: 100%; height: 100%; object-fit: cover;"></div>
+            <div style="flex: 1; background-color: #fcebd7; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px;">
+                <img src="logoploceus2.png" class="logo-banner" style="width: 200px; height: auto; margin-bottom: 15px;">
+                <p style="font-family: 'Poppins', sans-serif; font-size: 1.1rem; color: #555; margin: 0; line-height: 1.4;">Tus personajes favoritos<br>tejidos en crochet</p>
+            </div>
+            <div style="flex: 1.2;"><img src="banner-calamardo.jpg" style="width: 100%; height: 100%; object-fit: cover;"></div>
+        </div>
+
+        <div style="width: 50%; display: flex; align-items: stretch; height: 100%;">
+            <div style="flex: 1.2;">
+                <a href="patrones.html"><img src="PATRONBETTY.png" style="width: 100%; height: 100%; object-fit: cover; cursor: pointer;"></a>
+            </div>
+            <div style="flex: 1; background-color: #fdfaf7; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px;">
+    <h2 style="font-family: 'Sofia', cursive; font-size: 2.2rem; color: #d4a373; margin-bottom: 5px;">¡Patrones a la Venta!</h2>
+    <p style="font-family: 'Poppins'; color: #555; font-size: 1.1rem; font-weight: bold; margin-bottom: 5px;">¡Betty ya está aquí! 👓🧶</p>
+    <p style="font-family: 'Poppins'; color: #777; font-size: 0.9rem; margin-bottom: 15px;">Adquiere tus patrones favoritos y teje historias.</p>
+    <a href="patrones.html" style="background: #d4a373; color: white; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: bold; box-shadow: 0 4px 10px rgba(212, 163, 115, 0.3);">COMPRAR PATRONES AQUÍ</a>
+</div>
+            </div>
+            <div style="flex: 1.2;">
+                <a href="patrones.html"><img src="PATRONGIRASOL.png" style="width: 100%; height: 100%; object-fit: cover; cursor: pointer;"></a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // Script para que el inicio se deslice solo cada 5 segundos
+    let posicionActual = 0;
+    const slider = document.getElementById('hero-slider');
+    
+    setInterval(() => {
+        posicionActual = (posicionActual === 0) ? 50 : 0;
+        slider.style.transform = `translateX(-${posicionActual}%)`;
+    }, 5000);
+</script>
+
+    <section id="about" style="display: flex; align-items: center; justify-content: center; padding: 80px 10%; background-color: #fafafa; gap: 60px;">
+    
+    <div style="width: 380px; height: 380px; border-radius: 50%; overflow: hidden; border: 10px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+    <img src="foto-pau-taller.jpeg" alt="Pau Ploceus" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+    </div>
+
+    <div style="flex: 1.2; text-align: left;">
+        <div style="text-align: center; margin-bottom: 25px;">
+            <h2 style="font-family: 'Sofia', cursive; font-size: 3.2rem; color: #333; margin: 0;">Hola, soy Pau</h2>
+            <div style="width: 60px; height: 3px; background-color: #fcebd7; margin: 10px auto;"></div>
+        </div>
+        
+        <p style="font-size: 1.15rem; line-height: 1.8; color: #444; margin-bottom: 20px;">
+            Llevo 5 años dándole vida a la aguja. Mi pasión es crear esos personajes que todos conocemos y amamos, pero también encuentro magia en el diseño de prendas; me encanta ese equilibrio entre la ternura de un amigurumi y la estructura de algo que puedes usar y vestir.
+        </p>
+        
+        <p style="font-size: 1.15rem; line-height: 1.8; color: #444; margin-bottom: 20px;">
+            En esta web, te abro las puertas de mi taller. Si quieres aprender conmigo, he diseñado <strong>cursos de crochet desde cero</strong> y <strong>talleres intensivos</strong> para que tú también puedas tejer tus propias historias.
+        </p>
+        
+        <p style="font-size: 1.15rem; line-height: 1.8; color: #444;">
+            Además, aquí encontrarás mis <strong>patrones premium</strong> y algunos <strong>regalos gratuitos</strong> para que empecemos a tejer juntos hoy mismo.
+        </p>
+    </div>
+
+</section>
+
+    <div id="tienda" style="margin: 5rem 0; text-align: center;">
+    <h2 style="font-family: 'Sofia', cursive; font-size: 3rem; color: #333; margin-bottom: 40px;">La Tienda</h2>
+    
+    <div style="display: flex; gap: 30px; justify-content: center; flex-wrap: wrap;">
+
+        <div style="width: 300px; background: #fafafa; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.3s;">
+            <div style="height: 250px; background-image: url('goku.jpg'); background-size: cover; background-position: center;"></div>
+            <div style="padding: 25px;">
+                <h3 style="font-family: 'Sofia', cursive; font-size: 1.8rem; margin-bottom: 15px;">Amigurumis</h3>
+                <a href="amigurumis.html" style="display: inline-block; padding: 10px 30px; background-color: #fcebd7; color: #555; text-decoration: none; border-radius: 50px; font-weight: bold;">Ver todos →</a>
+            </div>
+        </div>
+
+        <div style="width: 300px; background: #fafafa; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.3s;">
+            <div style="height: 250px; background-image: url('foto-vestido.jpg'); background-size: cover; background-position: center;"></div>
+            <div style="padding: 25px;">
+                <h3 style="font-family: 'Sofia', cursive; font-size: 1.8rem; margin-bottom: 15px;">Prendas</h3>
+                <a href="prendas.html" style="display: inline-block; padding: 10px 30px; background-color: #fcebd7; color: #555; text-decoration: none; border-radius: 50px; font-weight: bold;">Ver todos →</a>
+            </div>
+        </div>
+
+        <div style="width: 300px; background: #fafafa; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.3s;">
+            <div style="height: 250px; background-image: url('PATRONBETTY.png'); background-size: cover; background-position: center;"></div>
+            <div style="padding: 25px;">
+                <h3 style="font-family: 'Sofia', cursive; font-size: 1.8rem; margin-bottom: 15px;">Patrones</h3>
+                <a href="patrones.html" style="display: inline-block; padding: 10px 30px; background-color: #fcebd7; color: #555; text-decoration: none; border-radius: 50px; font-weight: bold;">Ver patrones →</a>
+            </div>
+        </div>
+
+    <div id="talleres" style="margin: 5rem 0; padding: 50px 5%; background-color: #fdfaf7; border-radius: 30px;">
+    <div style="text-align: center; margin-bottom: 40px;">
+        <h2 style="font-family: 'Sofia', cursive; font-size: 3rem; margin-bottom: 10px;">Talleres</h2>
+        <p style="color: #666;">Tejiendo comunidad y saberes desde 2019.</p>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+        
+        <div style="flex: 1; min-width: 300px; max-width: 450px; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); text-align: center; border: 1px solid #ffeedd;">
+            <h3 style="font-family: 'Sofia', cursive; font-size: 2rem; color: #d4a373;">Nuestra Historia</h3>
+            <p style="margin-bottom: 25px;">Mira todos los talleres que hemos realizado y revive nuestras experiencias colectivas.</p>
+            <a href="talleres1.html" style="background-color: #d4a373; color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-block; transition: 0.3s;">
+                Ver Galería de Talleres
+            </a>
+        </div>
+
+        <div style="flex: 1; min-width: 300px; max-width: 450px; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); text-align: center; border: 2px dashed #d4a373;">
+            <h3 style="font-family: 'Sofia', cursive; font-size: 2rem; color: #d4a373;">Próximo Taller</h3>
+            <p style="margin-bottom: 25px;">Estamos preparando algo mágico para ti. ¡Pregúntanos por las próximas fechas!</p>
+            
+            <a href="https://wa.me/3163021398?text=Hola%20Pau!%20Quisiera%20información%20sobre%20los%20próximos%20talleres" target="_blank" style="color: #d4a373; text-decoration: none; font-weight: bold; font-size: 0.9rem; border: 1px solid #d4a373; padding: 10px 20px; border-radius: 50px;">
+                Preguntar por WhatsApp 🧶
+            </a>
+        </div>
+
+    </div>
+</div>
+
+    <div id="cursos" style="margin-top: 5rem;">
+      <h2 style="font-size: 3rem;">Nuestros <span>Cursos</span></h2>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px;">
+        
+        <div style="flex: 1; min-width: 300px; max-width: 450px; background: #fffaf5; padding: 35px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
+          <h3 style="font-family: 'Sofia', cursive; font-size: 2.2rem; color: #d4a373;">Crochet desde Cero</h3>
+          <p>Aprendes todos los puntos básicos, lectura de patrones y terminamos con un proyecto real.</p>
+          <ul style="list-style: none; padding: 0; text-align: left; font-size: 0.9rem; color: #666; margin: 15px 0;">
+    <li>🕒 <strong>Duración:</strong> 1 mes (2 veces por semana)</li>
+    <li>💻 <strong>Modalidad:</strong> Meet o Presencial (Bogotá)</li>
+    <li>⏳ <strong>Clases:</strong> 1 hora y media cada una</li>
+    <li>🧶 <strong>Proyecto Final:</strong> ¡Tu propio Bucket Hat!</li>
+</ul>
+
+<div style="background-color: #fff4e5; border-left: 5px solid #d4a373; padding: 15px; margin-bottom: 20px; text-align: left; font-size: 0.85rem; border-radius: 8px;">
+    <p style="margin: 0; color: #555;">
+        <strong>⚠️ NOTA IMPORTANTE:</strong> Este es un producto digital/servicio. Una vez finalices el pago, serás redirigido automáticamente a mi WhatsApp. 
+        <strong>¡POR FAVOR, ESCRÍBEME DE UNA VEZ!</strong> para coordinar tu proyecto, horarios y lista de materiales.
+    </p>
+    <p style="margin: 10px 0 0 0; font-style: italic; color: #777; font-size: 0.8rem;">
+        Nota: Si el sistema no te redirige, contáctame por Instagram o WhatsApp con tu comprobante de pago.
+    </p>
+</div>
+
+<div style="border-top: 1px solid #eee; margin-top: 20px; padding-top: 20px;">
+            <p>💻 <strong>Virtual:</strong> $180.000 COP | 🏠 <strong>Presencial:</strong> $200.000 COP</p>
+            <a href="https://checkout.wompi.co/l/f5mp4E" style="display: block; margin-top: 20px; padding: 15px; background: #70298d; color: #fff; text-decoration: none; border-radius: 12px; font-weight: bold; font-size: 0.9rem;">
+  Pagar con Nequi o Tarjeta ➔
+</a>
+          </div>
+        </div>
+
+        <div style="flex: 1; min-width: 300px; max-width: 450px; background: #fafafa; padding: 35px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
+          <h3 style="font-family: 'Sofia', cursive; font-size: 2.2rem; color: #d4a373;">Especialización Amigurumis</h3>
+          <p>Tú eliges el proyecto y yo te guío. Requiere conocimiento previo de los puntos básicos.</p>
+          <ul style="list-style: none; padding: 0; text-align: left; font-size: 0.9rem; color: #666; margin: 15px 0;">
+    <li>🕒 <strong>Duración:</strong> 1 mes (2 veces por semana)</li>
+    <li>💻 <strong>Modalidad:</strong> Meet o Presencial (Bogotá)</li>
+    <li>⏳ <strong>Clases:</strong> 1 hora y media cada una</li>
+    <li>🧸 <strong>Proyecto Final:</strong> El personaje que tú elijas</li>
+</ul>
+
+<div style="background-color: #fff4e5; border-left: 5px solid #d4a373; padding: 15px; margin-bottom: 20px; text-align: left; font-size: 0.85rem; border-radius: 8px;">
+    <p style="margin: 0; color: #555;">
+        <strong>⚠️ NOTA IMPORTANTE:</strong> Este es un producto digital/servicio. Una vez finalices el pago, serás redirigido automáticamente a mi WhatsApp. 
+        <strong>¡POR FAVOR, ESCRÍBEME DE UNA VEZ!</strong> para coordinar tu proyecto, horarios y lista de materiales.
+    </p>
+    <p style="margin: 10px 0 0 0; font-style: italic; color: #777; font-size: 0.8rem;">
+        Nota: Si el sistema no te redirige, contáctame por Instagram o WhatsApp con tu comprobante de pago.
+    </p>
+</div>
+
+<div style="border-top: 1px solid #eee; margin-top: 20px; padding-top: 20px;">
+            <p>💻 <strong>Virtual:</strong> $230.000 COP | 🏠 <strong>Presencial:</strong> $250.000 COP</p>
+            <a href="https://checkout.wompi.co/l/NHvrG5" style="display: block; margin-top: 20px; padding: 15px; background: #70298d; color: #fff; text-decoration: none; border-radius: 12px; font-weight: bold; font-size: 0.9rem;">
+  Pagar con Nequi o Tarjeta ➔
+</a>
+          </div>
+        </div>
+      </div>
+
+      <div id="patrones" style="margin: 5rem 0; text-align: center; padding: 0 20px;">
+      <h2 style="font-family: 'Sofia', cursive; font-size: 3rem; margin-bottom: 20px;">Patrones Gratuitos 🎁</h2>
+      <p style="color: #666; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
+        Aquí comparto algunos de mis diseños favoritos para que tejas conmigo. ¡Disfrútalos!
+      </p>
+      <a href="gratuitos.html" style="display: inline-block; margin-top: 10px; color: #d4a373; font-weight: 600; text-decoration: none;">Ver todos los patrones gratuitos →</a>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; max-width: 900px; margin: 0 auto;">
+        
+        <div style="flex: 1; min-width: 250px; max-width: 350px; background: #fdfdfd; padding: 25px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center;">
+    <img src="Patrón Chimuelo.jpg" style="width: 100%; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
+    <h3 style="font-family: 'Sofia', cursive; font-size: 1.8rem; margin-top: 0;">Chimuelo Amigurumi</h3>
+    <p style="font-size: 0.85rem; color: #666;">Teje a tu dragón favorito con este patrón detallado.</p>
+    <a href="https://drive.google.com/file/d/1GPR6Dt8z44z5SsJ3CHzBRg-57DUauBEp/view?usp=drive_link" style="display: inline-block; margin-top: 10px; color: #d4a373; text-decoration: none; font-weight: bold;">Descargar PDF (Gratis) ↓</a>
+</div>
+
+<div style="flex: 1; min-width: 250px; max-width: 350px; background: #fdfdfd; padding: 25px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center;">
+    <img src="Patrón Gonzo.jpg" style="width: 100%; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
+    <h3 style="font-family: 'Sofia', cursive; font-size: 1.8rem; margin-top: 0;">Gonzo Muppet</h3>
+    <p style="font-size: 0.85rem; color: #666;">Un patrón divertido para un personaje icónico.</p>
+    <a href="https://drive.google.com/file/d/1ExC1tR00uRR8X5QbwmScMmETrtHiKx44/view?usp=drive_link" style="display: inline-block; margin-top: 10px; color: #d4a373; text-decoration: none; font-weight: bold;">Descargar PDF (Gratis) ↓</a>
+</div>
+
+      </div>
+    </div>
+
+    <div style="padding: 80px 10%; background: #fdfaf7; display: flex; justify-content: center; align-items: center; gap: 50px; flex-wrap: wrap;">
+
+    
+    <div style="flex: 0 0 auto;">
+        <img src="ploceuscucullatus1.jpg" 
+             alt="Pájaro Ploceus Real" 
+             style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #ffeedd; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+    </div>
+
+    <div style="flex: 0 1 auto; max-width: 600px; text-align: left;">
+        <h3 style="font-family: 'Sofia', cursive; font-size: 1.8rem; color: #d4a373; margin: 0 0 10px 0;">¿Por qué Ploceus?</h3>
+        <p style="font-size: 0.95rem; color: #555; line-height: 1.6; margin: 0;">
+            El <b>Ploceus</b> es un ave conocida como el "pájaro tejedor". Es famoso por su asombrosa habilidad para entrelazar fibras naturales y crear nidos complejos, fuertes y hermosos. 
+        </p>
+        <p style="font-size: 0.95rem; color: #555; line-height: 1.6; margin-top: 8px;">
+            Esa misma paciencia es la que ponemos en cada punto de <b>Ploceus Colombia</b>, honrando esta maestría de la naturaleza en cada tejido.
+        </p>
+    </div>
+</div>
+
+    <div id="contacto" style="margin-top: 80px; padding: 40px 0; border-top: 1px solid #eee; text-align: center;">
+      <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+        <a href="https://www.instagram.com/ploceus.tejeril" target="_blank" style="text-decoration: none; color: #2b2b2b;">Instagram</a>
+        <a href="https://www.tiktok.com/@ploceus" target="_blank" style="text-decoration: none; color: #2b2b2b;">TikTok</a>
+        <a href="https://www.facebook.com/share/1AXZmBmher/" target="_blank" style="text-decoration: none; color: #2b2b2b;">Facebook</a>
+        <a href="https://wa.me/3163021398" target="_blank" style="text-decoration: none; color: #2b2b2b;">WhatsApp</a>
+      </div>
+
+      <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
+  <p style="font-size: 0.8rem; color: #999; margin-bottom: 10px;">Pagos seguros con:</p>
+  <div style="display: flex; justify-content: center; align-items: center; gap: 15px; opacity: 0.7;">
+    <img src="https://images.seeklogo.com/logo-png/40/2/nequi-logo-png_seeklogo-404357.png" alt="Nequi" style="height: 20px;">
+    <img src="https://www.laquinta.com.co/wp-content/uploads/2022/11/logo-pse-300x300-1.png" alt="PSE" style="height: 25px;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png" alt="Visa" style="height: 15px;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png" alt="Mastercard" style="height: 20px;">
+  </div>
+</div>
+
+      <p style="margin-top: 20px; color: #999; font-size: 0.8rem;">Ploceus &copy; 2026 - Tejido con amor por Pau</p>
+    </div>
+
+</body>
+</html>

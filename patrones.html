@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Patrones | Ploceus</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sofia&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --crema: #fffaf5; --dorado: #d4a373; --morado: #70298d; --oscuro: #2b2b2b; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--crema); color: var(--oscuro); margin: 0; padding: 0; }
+        header { padding: 40px 20px; text-align: center; }
+        h1 { font-family: 'Sofia', cursive; font-size: 3.5rem; margin: 0; }
+        .btn-volver { text-decoration: none; color: var(--dorado); font-size: 0.9rem; font-weight: 600; }
+        
+        .galeria-patrones { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; padding: 40px; max-width: 1200px; margin: 0 auto;
+        }
+        .patron-card { 
+            background: white; border-radius: 25px; padding: 25px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center;
+            border: 1px solid #ffeedd;
+        }
+        .precio { font-size: 1.5rem; font-weight: 600; color: var(--dorado); margin: 10px 0; }
+        
+        .btn-comprar { 
+            display: block; background: var(--morado); color: white; 
+            text-decoration: none; padding: 15px; border-radius: 12px; 
+            font-weight: bold; margin-top: 15px; transition: 0.3s;
+        }
+        .btn-comprar:hover { background: #5a1e72; transform: scale(1.02); }
+        .metodos { margin-top: 15px; opacity: 0.6; height: 20px; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="btn-volver">← Volver al inicio</a>
+        <h1>Tienda de Patrones</h1>
+        <p>Descarga inmediata y teje a tu ritmo.</p>
+    </header>
+
+    <div style="background: #eefdf5; border: 1px solid #c3e6cb; color: #155724; padding: 15px; border-radius: 12px; max-width: 800px; margin: 20px auto; font-size: 0.9rem; text-align: center;">
+  <strong>✓ Compra Segura:</strong> Recibirás el link de descarga de tu PDF automáticamente en pantalla apenas finalices el pago. ¡Descárgalo de inmediato! Si tienes algún problema con tu archivo, escríbeme por WhatsApp adjuntando tu comprobante y te lo envío manualmente. ✨ ✨
+</div>
+
+    <div class="galeria-patrones">
+        <div class="patron-card">
+            <img src="PATRONBETTY.png" alt="Patrón Betty" style="width: 100%; height: 250px; object-fit: cover; border-radius: 15px;">
+            <div class="info-patron">
+                <h3 style="font-family: 'Sofia', cursive; font-size: 1.8rem; margin: 10px 0;">Betty la Fea</h3>
+                <p style="font-size: 0.9rem;">Nivel: Intermedio. PDF detallado.</p>
+                <p class="precio" style="font-size: 1.4rem; font-weight: 600; color: #d4a373;">$ 25.000 COP</p>
+                
+                <a href="https://checkout.wompi.co/l/pZ6B72" class="btn-comprar">Comprar y Descargar</a>
+                
+                <div style="margin-top: 15px; display: flex; justify-content: center; align-items: center; gap: 8px; opacity: 0.8;">
+                    <span style="font-size: 0.6rem; color: #888;">PAGOS:</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Visa_2021.svg/1200px-Visa_2021.svg.png" height="12">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1200px-Mastercard-logo.svg.png" height="18">
+                    <img src="https://images.seeklogo.com/logo-png/40/2/nequi-logo-png_seeklogo-404357.png" alt="Nequi" style="height: 20px;">
+                </div>
+            </div>
+        </div>
+
+        <div class="patron-card">
+            <img src="PATRONGIRASOL.png" alt="Patrón Cajita Girasol" style="width: 100%; height: 250px; object-fit: cover; border-radius: 15px;">
+            <div class="info-patron">
+                <h3 style="font-family: 'Sofia', cursive; font-size: 1.8rem; margin: 10px 0;">Cajita Girasol</h3>
+                <p style="font-size: 0.9rem;">Nivel: Principiante. Ideal para regalo.</p>
+                <p class="precio" style="font-size: 1.4rem; font-weight: 600; color: #d4a373;">$ 15.000 COP</p>
+                
+                <a href="https://checkout.wompi.co/l/51BIve" class="btn-comprar">Comprar y Descargar</a>
+                
+                <div style="margin-top: 15px; display: flex; justify-content: center; align-items: center; gap: 8px; opacity: 0.8;">
+                    <span style="font-size: 0.6rem; color: #888;">PAGOS:</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Visa_2021.svg/1200px-Visa_2021.svg.png" height="12">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1200px-Mastercard-logo.svg.png" height="18">
+                    <img src="https://images.seeklogo.com/logo-png/40/2/nequi-logo-png_seeklogo-404357.png" alt="Nequi" style="height: 20px;">
+                </div>
+            </div>
+        </div>
+
+        <div class="patron-card">
+            <img src="PATRONESINTENSAMNETE.png" alt="Patrón Mini Intensamente" style="width: 100%; height: 250px; object-fit: cover; border-radius: 15px;">
+            <div class="info-patron">
+                <h3 style="font-family: 'Sofia', cursive; font-size: 1.8rem; margin: 10px 0;">Mini Intensamente</h3>
+                <p style="font-size: 0.9rem;">Nivel: Intermedio. Colección emociones.</p>
+                <p class="precio" style="font-size: 1.4rem; font-weight: 600; color: #d4a373;">$ 30.000 COP</p>
+                
+                <a href="https://checkout.wompi.co/l/ThzYNa" class="btn-comprar">Comprar y Descargar</a>
+                
+                <div style="margin-top: 15px; display: flex; justify-content: center; align-items: center; gap: 8px; opacity: 0.8;">
+                    <span style="font-size: 0.6rem; color: #888;">PAGOS:</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Visa_2021.svg/1200px-Visa_2021.svg.png" height="12">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1200px-Mastercard-logo.svg.png" height="18">
+                    <img src="https://images.seeklogo.com/logo-png/40/2/nequi-logo-png_seeklogo-404357.png" alt="Nequi" style="height: 20px;">
+                </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.patron-card img').forEach(imagen => {
+            imagen.style.cursor = 'zoom-in'; 
+            imagen.onclick = function() {
+                // Aquí usamos el mismo sistema de visor que en prendas
+                alert("Abriendo vista previa del patrón..."); 
+            }
+        });
+    </script>
+
+    </body>
+</html>

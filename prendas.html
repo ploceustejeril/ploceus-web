@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prendas Tejidas | Ploceus</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sofia&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --crema: #fffaf5; --dorado: #d4a373; --oscuro: #2b2b2b; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--crema); color: var(--oscuro); margin: 0; padding: 0; }
+        header { padding: 40px 20px; text-align: center; }
+        h1 { font-family: 'Sofia', cursive; font-size: 3.5rem; margin: 0; color: var(--oscuro); }
+        .btn-volver { text-decoration: none; color: var(--dorado); font-size: 0.9rem; font-weight: 600; }
+        .galeria { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 25px; padding: 40px; max-width: 1200px; margin: 0 auto;
+        }
+        .prenda-card { 
+            background: white; border-radius: 20px; overflow: hidden; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.3s;
+            border: 1px solid #f0f0f0;
+        }
+        .prenda-card:hover { transform: translateY(-10px); }
+        .foto-placeholder { width: 100%; height: 350px; background: #fdf2e9; }
+        .info { padding: 20px; text-align: center; }
+        .btn-whatsapp {
+            position: fixed; bottom: 30px; right: 30px;
+            background: #25d366; color: white; padding: 15px 25px;
+            border-radius: 50px; text-decoration: none; font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 10px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <header style="padding: 40px 20px; text-align: center;">
+        <a href="index.html" class="btn-volver" style="text-decoration: none; color: #d4a373; font-weight: bold;">← Volver al Inicio</a>
+        <h1 style="font-family: 'Sofia', cursive; font-size: 3.5rem; color: #333; margin: 20px 0;">Prendas y Accesorios</h1>
+        
+        <div style="margin-top: 30px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+            <button onclick="filtrar('todas')" style="padding: 10px 25px; border-radius: 50px; border: 2px solid #d4a373; background: #d4a373; color: white; cursor: pointer; font-weight: bold;">Todo</button>
+            <button onclick="filtrar('moda')" style="padding: 10px 25px; border-radius: 50px; border: 2px solid #d4a373; background: white; color: #d4a373; cursor: pointer; font-weight: bold;">👗 Moda</button>
+            <button onclick="filtrar('accesorios')" style="padding: 10px 25px; border-radius: 50px; border: 2px solid #d4a373; background: white; color: #d4a373; cursor: pointer; font-weight: bold;">🧣 Accesorios</button>
+            <button onclick="filtrar('mascotas')" style="padding: 10px 25px; border-radius: 50px; border: 2px solid #d4a373; background: white; color: #d4a373; cursor: pointer; font-weight: bold;">🐾 Mascotas</button>
+        </div>
+    </header>
+
+    <section class="galeria" id="contenedor-prendas">
+        <div class="amigurumi-card moda">
+            <img src="foto-vestido.jpg" style="width: 100%; height: 350px; object-fit: cover;">
+            <div class="info"><h3>Vestido Uva</h3><p>Moda Crochet</p></div>
+        </div>
+        <div class="amigurumi-card moda">
+            <img src="foto-pau.jpg" style="width: 100%; height: 350px; object-fit: cover;">
+            <div class="info"><h3>Saco Coraline</h3><p>Moda Crochet</p></div>
+        </div>
+
+        <div class="amigurumi-card moda">
+            <img src="topverano.jpg" style="width: 100%; height: 350px; object-fit: cover;">
+            <div class="info"><h3>Top Verano</h3><p>Moda Crochet</p></div>
+        </div>
+
+        <div class="amigurumi-card accesorios">
+            <img src="gorrochopper.jpg" style="width: 100%; height: 350px; object-fit: cover;">
+            <div class="info"><h3>Gorro Chopper</h3><p>Bufandas y Gorros</p></div>
+        </div>
+
+        <div class="amigurumi-card accesorios">
+            <img src="gorroappa.jpg" style="width: 100%; height: 350px; object-fit: cover;">
+            <div class="info"><h3>Gorro Appa</h3><p>Bufandas y Gorros</p></div>
+        </div>
+
+        <div class="amigurumi-card accesorios">
+            <img src="gorrotanjiro.jpg" style="width: 100%; height: 350px; object-fit: cover;">
+            <div class="info"><h3>Gorro Inosuke</h3><p>Bufandas y Gorros</p></div>
+        </div>
+
+        <div class="amigurumi-card accesorios">
+            <img src="gorrojake.jpg" style="width: 100%; height: 350px; object-fit: cover;">
+            <div class="info"><h3>Gorro Jake</h3><p>Bufandas y Gorros</p></div>
+        </div>
+
+        <div class="amigurumi-card accesorios">
+            <img src="Balaclava.jpg" style="width: 100%; height: 350px; object-fit: cover;">
+            <div class="info"><h3>Balaclava</h3><p>Bufandas y Gorros</p></div>
+        </div>
+
+        <div class="amigurumi-card accesorios">
+            <img src="balaclavaconejo.jpg" style="width: 100%; height: 350px; object-fit: cover;">
+            <div class="info"><h3>Balaclava Conejo</h3><p>Bufandas y Gorros</p></div>
+        </div>
+
+        <div class="amigurumi-card mascotas">
+            <img src="gatoChopper.jpg" style="width: 100%; height: 350px; object-fit: cover;">
+            <div class="info"><h3>Gorrito Chopper</h3><p>Línea Mascotas</p></div>
+        </div>
+
+        <div class="amigurumi-card mascotas">
+            <img src="gatoLuffy.jpg" style="width: 100%; height: 350px; object-fit: cover;">
+            <div class="info"><h3>Gorrito Luffy</h3><p>Línea Mascotas</p></div>
+        </div>
+
+        <div class="amigurumi-card mascotas">
+            <img src="florgato1.jpg" style="width: 100%; height: 350px; object-fit: cover;">
+            <div class="info"><h3>Gorrito Flor</h3><p>Línea Mascotas</p></div>
+        </div>
+
+    </section>
+
+    <script>
+        function filtrar(categoria) {
+            const tarjetas = document.querySelectorAll('.amigurumi-card');
+            tarjetas.forEach(tarjeta => {
+                if (categoria === 'todas' || tarjeta.classList.contains(categoria)) {
+                    tarjeta.style.display = 'block';
+                } else {
+                    tarjeta.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+<div id="visor-fotos" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; justify-content: center; align-items: center; cursor: pointer;" onclick="this.style.display='none'">
+        <span style="position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; font-weight: bold;">&times;</span>
+        <img id="foto-grande" src="" style="max-width: 90%; max-height: 85%; border: 4px solid white; border-radius: 15px; box-shadow: 0 0 30px rgba(0,0,0,0.5);">
+    </div>
+
+    <script>
+        // Esta función hace que al hacer clic en las fotos se abran en grande
+        document.querySelectorAll('.amigurumi-card img').forEach(imagen => {
+            imagen.style.cursor = 'zoom-in'; 
+            imagen.onclick = function() {
+                document.getElementById('visor-fotos').style.display = 'flex';
+                document.getElementById('foto-grande').src = this.src;
+            }
+        });
+    </script>
+
+    <a href="https://wa.me/3163021398?text=Hola%20Pau!%20Vi%20tus%20prendas%20en%20la%20web%20y%20quiero%20cotizar%20una" class="btn-whatsapp" target="_blank">
+        Haz tu pedido 💬
+    </a>
+</body>
+</html>

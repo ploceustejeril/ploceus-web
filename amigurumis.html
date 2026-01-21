@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amigurumis | Ploceus</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sofia&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --crema: #fffaf5; --dorado: #d4a373; --oscuro: #2b2b2b; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--crema); color: var(--oscuro); margin: 0; padding: 0; }
+        
+        header { padding: 40px 20px; text-align: center; }
+        h1 { font-family: 'Sofia', cursive; font-size: 3.5rem; margin: 0; color: var(--oscuro); }
+        
+        .btn-volver { text-decoration: none; color: var(--dorado); font-size: 0.9rem; font-weight: 600; }
+
+        /* Estilo de la Galería */
+        .galeria { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 25px; padding: 40px; max-width: 1200px; margin: 0 auto;
+        }
+        .amigurumi-card { 
+            background: white; border-radius: 20px; overflow: hidden; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.3s;
+            border: 1px solid #f0f0f0;
+        }
+        .amigurumi-card:hover { transform: translateY(-10px); }
+        .foto-placeholder { width: 100%; height: 300px; background: #eee; }
+        .info { padding: 20px; text-align: center; }
+
+        /* Botón Flotante de WhatsApp */
+        .btn-whatsapp {
+            position: fixed; bottom: 30px; right: 30px;
+            background: #25d366; color: white; padding: 15px 25px;
+            border-radius: 50px; text-decoration: none; font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 10px;
+            z-index: 1000; transition: 0.3s;
+        }
+        .btn-whatsapp:hover { background: #128c7e; transform: scale(1.05); }
+    </style>
+</head>
+<body>
+
+    <header style="padding: 20px; text-align: center;">
+        <a href="index.html" class="btn-volver">← Volver al Inicio</a>
+        <h1 style="font-family: 'Sofia', cursive; font-size: 3.5rem; color: #333; margin: 10px 0;">Mis Amigurumis</h1>
+        <p>Cada punto cuenta una historia diferente.</p>
+    </header>
+
+    <div class="galeria">
+        <div class="amigurumi-card">
+            <img src="cocodriloDonKingKong.jpg" alt="King K. Rool" style="width: 100%; height: 300px; object-fit: cover;">
+            <div class="info">
+                <h3>King K. Rool</h3>
+                <p>Patrón Premium</p>
+            </div>
+        </div>
+
+        <div class="amigurumi-card">
+            <img src="goku.jpg" alt="Goku" style="width: 100%; height: 300px; object-fit: cover;">
+            <div class="info">
+                <h3>Goku y Milk</h3>
+                <p>Colección Anime</p>
+            </div>
+        </div>
+
+        <div class="amigurumi-card">
+            <img src="TioCosa.jpg" alt="Tio Cosa" style="width: 100%; height: 300px; object-fit: cover;">
+            <div class="info">
+                <h3>Tío Cosa</h3>
+                <p>Especial Halloween</p>
+            </div>
+        </div>
+
+        <div class="amigurumi-card">
+            <img src="patolucas.jpg" alt="Pato Lucas" style="width: 100%; height: 300px; object-fit: cover;">
+            <div class="info">
+                <h3>Pato Lucas</h3>
+                <p>Looney Tunes</p>
+        </div>
+        </div>
+
+         <div class="amigurumi-card">
+            <img src="ana.jpg" alt="Ana" style="width: 100%; height: 300px; object-fit: cover;">
+            <div class="info">
+                <h3>Ana</h3>
+                <p>Princesas Disney</p>
+            </div>
+        </div>
+
+         <div class="amigurumi-card">
+            <img src="coraline.jpg" alt="Coraline" style="width: 100%; height: 300px; object-fit: cover;">
+            <div class="info">
+                <h3>Coraline</h3>
+                <p>Tejido en Chelline</p>
+            </div>
+        </div>
+
+        <div class="amigurumi-card">
+            <img src="Moana.jpg" alt="Moana" style="width: 100%; height: 300px; object-fit: cover;">
+            <div class="info">
+                <h3>Pua</h3>
+                <p>Princesas Disney</p>
+            </div>
+        </div>
+
+        <div class="amigurumi-card">
+            <img src="banner-pesebre.jpeg" alt="Pesebre" style="width: 100%; height: 300px; object-fit: cover;">
+            <div class="info">
+                <h3>Pesebre</h3>
+                <p>Colección Navideña</p>
+            </div>
+        </div>
+
+        <div id="visor-fotos" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; justify-content: center; align-items: center; cursor: pointer;" onclick="this.style.display='none'">
+        <span style="position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; font-weight: bold;">&times;</span>
+        <img id="foto-grande" src="" style="max-width: 90%; max-height: 85%; border: 4px solid white; border-radius: 15px; box-shadow: 0 0 30px rgba(0,0,0,0.5);">
+    </div>
+
+    <script>
+        // Esta función activa el clic en las fotos de amigurumis
+        document.querySelectorAll('.amigurumi-card img').forEach(imagen => {
+            imagen.style.cursor = 'zoom-in'; 
+            imagen.onclick = function() {
+                document.getElementById('visor-fotos').style.display = 'flex';
+                document.getElementById('foto-grande').src = this.src;
+            }
+        });
+    </script>
+
+    <a href="https://wa.me/3163021398?text=Hola%20Pau!%20Vi%20tus%20amigurumis%20en%20la%20web%20y%20quiero%20hacer%20un%20pedido" class="btn-whatsapp" target="_blank">
+        Haz tu pedido 💬
+    </a>
+
+</body>
+</html>

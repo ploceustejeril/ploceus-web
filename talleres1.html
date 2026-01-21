@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talleres Ploceus | Experiencias de Tejido en Colombia</title>
+    
+    <meta name="description" content="Revive los talleres de Ploceus: desde tejido feminista hasta crochet ecológico. Inspirando a tejer con propósito en toda Colombia.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Sofia&family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-fondo: #ffffff;
+            --color-hero: #ffeedd;
+            --color-texto: #2b2b2b;
+            --color-acento: #d4a373;
+            --fuente-titulo: 'Sofia', cursive;
+            --fuente-cuerpo: 'Quicksand', sans-serif;
+        }
+
+        body {
+            font-family: var(--fuente-cuerpo);
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #f8f8f8;
+        }
+
+        .btn-volver {
+            text-decoration: none;
+            color: var(--color-acento);
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: var(--fuente-titulo);
+            font-size: 3.5rem;
+            margin: 0;
+        }
+
+        .galeria-talleres {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 50px 5%;
+        }
+
+        .taller-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border: 1px solid #ffeedd;
+        }
+
+        .taller-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .taller-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .taller-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .taller-info h3 {
+            font-family: var(--fuente-titulo);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .tag-taller {
+            display: inline-block;
+            background: var(--color-hero);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* Efecto de lupa y zoom para todas las fotos de talleres */
+        .taller-card img {
+            transition: transform 0.3s ease;
+            cursor: zoom-in; /* Aquí aparece la lupa */
+        }
+
+        .taller-card img:hover {
+            transform: scale(1.1); 
+            z-index: 10;
+        }
+
+        /* Estilos del Lightbox (Ventana grande) */
+        #lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        #lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 15px;
+            border: 5px solid white;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="btn-volver">← Volver al Inicio</a>
+        <h1>Nuestros Talleres</h1>
+        <p>Tejiendo historias, comunidad y revolución desde 2019.</p>
+    </header>
+
+    <div class="galeria-talleres">
+
+        <div class="taller-card">
+            <img src="ELTEJIDOYLAMUJERENLAHISTORIA.jpeg" alt="Tejido y Mujeres en la Historia">
+            <div class="taller-info">
+                <span class="tag-taller">CONCIENCIA</span>
+                <h3>El tejido y las mujeres en la historia</h3>
+                <p>Creamos un pin feminista mientras honramos la labor textil como herramienta de lucha.</p>
+            </div>
+        </div>
+
+        <div class="taller-card">
+            <img src="TALLERDEBOLSAABOLSO.jpg" alt="Taller De Bolsa a Bolso">
+            <div class="taller-info">
+                <span class="tag-taller">SOSTENIBLE</span>
+                <h3>De Bolsa a Bolso</h3>
+                <p>Aprendimos a crear hilo a partir de bolsas plásticas para tejer accesorios ecológicos.</p>
+            </div>
+        </div>
+
+        <div class="taller-card">
+            <img src="TALLERFLORECIENDO.jpg" alt="Taller Floreciendo">
+            <div class="taller-info">
+                <span class="tag-taller">ARTE INTERVENIDO</span>
+                <h3>Floreciendo</h3>
+                <p>Intervención de espejos con flores tejidas, uniendo el crochet con el diseño de interiores.</p>
+            </div>
+        </div>
+
+        <div class="taller-card">
+            <img src="TALLERGIRASOL.jpg" alt="Taller Girasol">
+            <div class="taller-info">
+                <span class="tag-taller">APORTE VOLUNTARIO</span>
+                <h3>Taller Girasol</h3>
+                <p>Un espacio abierto para tejer girasoles y compartir saberes de forma circular.</p>
+            </div>
+        </div>
+
+        <div class="taller-card">
+            <img src="DIADELAMUJER2019.jpeg" alt="Taller Bandana 2019">
+            <div class="taller-info">
+                <span class="tag-taller">DÍA DE LA MUJER 2019</span>
+                <h3>Bandana Feminista</h3>
+                <p>Donde todo comenzó. Tejimos nuestra primera prenda con mensaje social.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="lightbox" onclick="this.style.display='none'">
+        <span style="position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; font-weight: bold;">&times;</span>
+        <img id="img-ampliada" src="">
+    </div>
+
+    <script>
+        // Este script hace que todas las fotos se abran solas sin tocar el HTML de cada una
+        document.querySelectorAll('.taller-card img').forEach(imagen => {
+            imagen.addEventListener('click', function() {
+                document.getElementById('img-ampliada').src = this.src;
+                document.getElementById('lightbox').style.display = 'flex';
+            });
+        });
+    </script>
+
+</body>
+</html>
